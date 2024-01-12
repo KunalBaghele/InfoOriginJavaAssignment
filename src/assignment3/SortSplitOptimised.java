@@ -51,12 +51,8 @@ public class SortSplitOptimised {
         System.out.println("A: " + Arrays.toString(a));
         System.out.println("B: " + Arrays.toString(b));
 
-        // Merge Sort
-        i = 0;
-        j = 0;
-        k = 0;
-
-        for (; i < p && j < q; k++) {
+        // Merge Sort a= [1,3,5,7,9] b=[2,4,6]
+        for (i=0,j=0,k=0; i < p && j < q; k++) {
             if (a[i] <= b[j]) {
                 c[k] = a[i];
                 i++;
@@ -67,12 +63,12 @@ public class SortSplitOptimised {
         }
 
         // Copy remaining elements from A, if any
-        for (; i < p; k++, i++) {
+        for (i=0,k=0; i < p; k++, i++) {
             c[k] = a[i];
         }
 
         // Copy remaining elements from B, if any
-        for (; j < q; k++, j++) {
+        for (j=0,k=0; j < q; k++, j++) {
             c[k] = b[j];
         }
 
