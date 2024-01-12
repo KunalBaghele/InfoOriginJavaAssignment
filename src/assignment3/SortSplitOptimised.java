@@ -19,47 +19,71 @@ public class SortSplitOptimised {
             q = s.nextInt();
         } while (q < 0);
 
-        int[] a = new int[p];
-        int[] b = new int[q];
+        int a[] = new int[p];
+        int b[] = new int[q];
+        int c[] = new int[p + q];
+        int i, j, k;
 
         // Input for array A
-        System.out.println("Enter elements for array A:");
-        for (int i = 0; i < p; i++) {
-            System.out.print("Enter " + (i + 1) + " element of A[]: ");
+        System.out.println("Enter elements for array A (sorted):");
+        for (i = 0; i < p; i++) {
+            System.out.print("Enter " + (i + 1) + " element of A[] :");
             a[i] = s.nextInt();
+            if (i > 0 && a[i - 1] > a[i]) {
+                System.out.println("Please enter the elements in sorted order.");
+                i--;
+            }
         }
 
         // Input for array B
         System.out.println("----------------------------------------");
-        System.out.println("Enter elements for array B:");
-        for (int i = 0; i < q; i++) {
-            System.out.print("Enter " + (i + 1) + " element of B[]: ");
-            b[i] = s.nextInt();
+        System.out.println("Enter elements for array B (sorted):");
+        for (j = 0; j < q; j++) {
+            System.out.print("Enter " + (j + 1) + " element of B[] :");
+            b[j] = s.nextInt();
+            if (j > 0 && b[j - 1] > b[j]) {
+                System.out.println("Please enter the elements in sorted order.");
+                j--;
+            }
         }
 
         System.out.println("\nInitial Arrays:");
         System.out.println("A: " + Arrays.toString(a));
         System.out.println("B: " + Arrays.toString(b));
 
-        // Merge arrays directly into a
-        int i = 0, j = 0, k = 0;
-        while (i < p && j < q) {
-            if (a[i] < b[j]) {
-                a[k++] = a[i++];
+        // Merge Sort
+        i = 0;
+        j = 0;
+        k = 0;
+
+        for (; i < p && j < q; k++) {
+            if (a[i] <= b[j]) {
+                c[k] = a[i];
+                i++;
             } else {
-                a[k++] = b[j++];
+                c[k] = b[j];
+                j++;
             }
         }
-        while (i < p) {
-            a[k++] = a[i++];
-        }
-        while (j < q) {
-            a[k++] = b[j++];
+
+        // Copy remaining elements from A, if any
+        for (; i < p; k++, i++) {
+            c[k] = a[i];
         }
 
-        // Update array B from the second half of the merged array
-        System.arraycopy(a, 0, b, 0, p + q);
+        // Copy remaining elements from B, if any
+        for (; j < q; k++, j++) {
+            c[k] = b[j];
+        }
 
+        // Copy elements from c back to a and b
+        for (k = 0; k < p; k++) {
+            a[k] = c[k];
+        }
+
+        for (k = 0; k < q; k++) {
+            b[k] = c[p + k];
+        }
 
         System.out.println("\nFinal Arrays:");
         System.out.println("A: " + Arrays.toString(a));

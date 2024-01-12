@@ -17,7 +17,7 @@ public class SumOfDigit {
 		Scanner s = new Scanner(System.in);
 		System.out.print("Enter the size of array : ");
 		int a = s.nextInt();
-		int[] arr = new int[a]; // Assuming array length is 5
+		int[] arr = new int[a];
 
 		for (int i = 0; i < arr.length; i++) {
 			int num;
