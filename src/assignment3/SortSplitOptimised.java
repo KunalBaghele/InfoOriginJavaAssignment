@@ -52,7 +52,7 @@ public class SortSplitOptimised {
         System.out.println("B: " + Arrays.toString(b));
 
         // Merge Sort a= [1,3,5,7,9] b=[2,4,6]
-        for (i=0,j=0,k=0; i < p && j < q; k++) {
+        for (i=0,j=0,k=0; i < p && j < q ; k++) {
             if (a[i] <= b[j]) {
                 c[k] = a[i];
                 i++;
@@ -62,24 +62,31 @@ public class SortSplitOptimised {
             }
         }
 
-        // Copy remaining elements from A, if any
-        for (i=0,k=0; i < p; k++, i++) {
-            c[k] = a[i];
-        }
-
-        // Copy remaining elements from B, if any
-        for (j=0,k=0; j < q; k++, j++) {
-            c[k] = b[j];
-        }
-
-        // Copy elements from c back to a and b
-        for (k = 0; k < p; k++) {
-            a[k] = c[k];
-        }
-
-        for (k = 0; k < q; k++) {
-            b[k] = c[p + k];
-        }
+//        for (i = 0; i < c.length; i++) {
+//			
+//		}
+        
+for (int k2 = 0; k2 < c.length; k2++) {
+	System.out.print(c[k2]+" ");
+}
+   
+//        for (i=0,k=0; i < p; k++, i++) {
+//            c[k] = a[i];
+//        }
+//
+//     
+//        for (j=0,k=0; j < q; k++, j++) {
+//            c[k] = b[j];
+//        }
+//
+//
+//        for (k = 0; k < p; k++) {
+//            a[k] = c[k];
+//        }
+//
+//        for (k = 0; k < q; k++) {
+//            b[k] = c[p + k];
+//        }
 
         System.out.println("\nFinal Arrays:");
         System.out.println("A: " + Arrays.toString(a));
