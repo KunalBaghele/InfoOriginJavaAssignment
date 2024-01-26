@@ -61,9 +61,9 @@ public class SortAndSplitArray {
                 c[k] = b[j];
                 j++;
             }
-        }//O(p+q)
+        }
 
-        Arrays.sort(c);//nlog(n)---best no complexity can be less than this
+        Arrays.sort(c);
 
         for (k = 0; k < p; k++) {
             a[k] = c[k];

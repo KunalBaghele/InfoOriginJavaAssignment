@@ -69,7 +69,7 @@ public class SortNegativePositive {
                 }
                 break; // Exit the loop if input is valid
             } else {
-                System.out.println("Invalid Input..!! Enter equal number of positive and negative elements. Please try again.");
+                System.out.println("Invalid Input..!! Enter equal number of positive and negative elements, Please try again.");
             }
         }
     }

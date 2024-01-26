@@ -7,8 +7,8 @@ public class SumOfDigit {
 	public static int getSum(int n) {
 		int sum = 0;
 		while (n != 0) {
-			sum = sum + n % 10; // Add the last digit to the sum
-			n = n / 10; // Remove the last digit from the number
+			sum = sum + n % 10; // Add the last digit to the sum, It will give remainder
+			n = n / 10; // Remove the last digit from the number, It will give quotient
 		}
 		return sum;
 	}

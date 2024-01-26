@@ -1,4 +1,4 @@
-package assignment1;
+ package assignment1;
 
 import java.util.Scanner;
 
@@ -30,7 +30,6 @@ public class EvenOdd {
                 }
             } else {
                 System.out.println("Invalid input..!! Please enter a valid number.");
-                s.next(); // consume the invalid input
                 i--; // Decrement i to re-enter the current element
             }
         }

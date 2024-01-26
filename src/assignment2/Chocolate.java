@@ -27,8 +27,14 @@ public class Chocolate {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int chocolate, people;
-        System.out.print("Enter number of chocolates: ");
-        chocolate = s.nextInt();
+        
+        do {
+        	System.out.print("Enter number of chocolates: ");
+            chocolate = s.nextInt();
+            if (chocolate <= 0) {
+                System.out.println("Number of chocolate should be greater than zero. Please try again.");
+            }
+        } while (chocolate <= 0);
 
         do {
             System.out.print("Enter number of people: ");
@@ -41,9 +47,9 @@ public class Chocolate {
 
         int[] arr = new int[people];
         
-        backward(arr,chocolate);
+//        backward(arr,chocolate);
 
-//        forward(arr, chocolate);
+        forward(arr, chocolate);
 
         System.out.print("Distribution of chocolates: ");
         for (int a : arr) {
